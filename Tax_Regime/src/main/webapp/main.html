@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Regime</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color:rgb(51, 51, 51); 
+            border-bottom: 1px solid #fff;
+            z-index: 1000;
+            padding-left: 100px ;
+            padding-top: 8px;
+            text-align: left;
+            justify-content: center;
+            color: #fff;
+            height: 80px;
+        }
+        .lbtn{
+            background-color:rgb(51, 51, 51);
+            color: #fff;
+            font-size: large;
+            cursor:pointer;
+            padding-top:15px;
+            text-decoration:none;
+        }
+        .hdiv{
+            display: flex;
+        }
+        h1{
+            width: 85%;
+        }
+        .welcome-message {
+            margin-left: 20px;
+        }
+        .new-user-header {
+            width: calc(100% - 40px); /* To add space from the screen edges */
+            height: 50px;
+            background-color: #008cba;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 100px auto 20px auto; /* Space between the header and this div */
+            padding: 0 20px; /* Space from the screen edges */
+            box-sizing: border-box;
+        }
+        .new-user-header h2 {
+            margin: 0;
+        }
+        .record-details, .switch-options {
+            margin: 20px 0;
+        }
+        .record-details label, .switch-options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .record-details input, .switch-options input[type="checkbox"], .switch-options select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .buttons {
+            text-align: center;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            background-color: #008cba;
+            color: white;
+            border: none;
+            cursor: not-allowed;
+            margin: 5px;
+        }
+        .buttons button:enabled {
+            cursor: pointer;
+            background-color: #005f8c;
+        }
+        .cbdt-info, .tax-options, .tax-calculator {
+            margin: 10px 0;
+            text-align: center;
+        }
+        .cbdt-info a, .tax-options a, .tax-calculator a {
+            color: #008cba;
+            text-decoration: none;
+        }
+        .hello{
+            display:flex;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.querySelector('.buttons button');
+            const checkboxes = document.querySelectorAll('.switch-options input[type="checkbox"]');
+
+            function toggleSubmitButton() {
+                const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                submitButton.disabled = !allChecked;
+                submitButton.style.cursor = allChecked ? 'pointer' : 'not-allowed';
+            }
+
+            checkboxes.forEach(checkbox => checkbox.addEventListener('change', toggleSubmitButton));
+
+            // Initialize the button state
+            toggleSubmitButton();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="hdiv">
+            <h1>Tax Regime</h1>
+            <a href='Login.html' class="lbtn"><b>Log in</b></a>
+        </div>
+    </header>
+    <div class="new-user-header">
+        <h2>Tax Regime Switch option facility from default (New Tax Regime) to old tax regime for Financial year 2023-24</h2>
+    </div>
+    <div class="container">
+        <h3 style="color:blue;">Record Details</h3>
+        <form action="submitTaxRegime" method="POST">
+            <div class="record-details">
+                <label for="pno">Pno:</label>
+                <input type="text" id="pno" name="pno" required>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="level">Level:</label>
+                <input type="text" id="level" name="level" required>
+
+                <label for="Date">Date:</label>
+                <input type="date" id="Date" name="Date" pattern="\d{4}-\d{2}-\d{2}" required>
+            </div>
+            <div>Documents: </div>
+            <div class="hello">
+                <div class="cbdt-info">
+                    <a href="cdt.pdf" download> CBDT clarification for TDS - 115BAC</a>
+                </div>
+                <div class="tax-options" style="padding-left:40px">
+                    <a href="cdt.pdf" download>New Tax Slab Vs Old Tax Slab Options</a>
+                </div>
+                <div class="tax-calculator" style="padding-left:40px">
+                    <a href="#">Tax Calculator</a>
+                </div>
+            </div>
+            <div class="switch-options">
+                <p>You are currently under Income Tax default Option-I (New tax Regime).</p>
+                <label for="switch">Do you want to switch from Option-I (New Tax Regime) to Option-II (Old Tax Regime)?</label>
+                <select id="switch" name="switch" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label><input type="checkbox" name="read_documents" required> I have read the enclosed documents attached carefully before exercising the switching option.</label>
+                <label><input type="checkbox" name="switch_once" required> I can switch only once in a Financial Year.</label>
+            </div>
+            <div class="buttons">
+                <button type="submit" disabled>Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

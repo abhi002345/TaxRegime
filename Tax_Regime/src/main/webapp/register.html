@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Regime</title>
+    <link rel="stylesheet" href="style.css">
+   <style>
+     
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 60px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 50px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color:rgb(51, 51, 51); 
+    border-bottom: 1px solid #fff;
+    z-index: 1000;
+    padding-left: 100px ;
+    padding-top: 8px;
+    text-align: left;
+    justify-content: center;
+    color: #fff;
+    height: 80px;
+    
+    }
+.lbtn{
+  background-color:rgb(51, 51, 51);
+  color: #fff;
+  font-size: large;
+  cursor:pointer;
+  padding-top:15px;
+  text-decoration:none;
+}
+.hdiv{
+  display: flex;
+}
+h1{
+  width: 85%;
+}
+
+
+
+
+.new-user-header {
+    width: calc(100% - 40px); /* To add space from the screen edges */
+    height: 50px;
+    background-color: #008cba;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 100px auto 20px auto; /* Space between the header and this div */
+    padding: 0 20px; /* Space from the screen edges */
+    box-sizing: border-box;
+}
+
+.new-user-header h2 {
+    margin: 0;
+    
+}
+
+.form-section {
+    padding: 20px;
+}
+
+.form-section h2 {
+    margin-top: 0;
+    color:blue;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.hello {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+            background-color: #005f8c;
+
+.abhi{
+display:flex;
+}
+
+    
+   </style>
+   
+</head>
+<body >
+    <header>
+      <div class="hdiv">
+       <h1>Tax Regime</h1>
+      <a href='Login.html' class="lbtn"><b>Log in</b></a>
+    </div>
+    </header>
+    <div class="new-user-header">
+        <h2>New User</h2>
+    </div>
+    
+    
+    <div class="container">
+    
+        <section class="form-section">
+            <h2>User Details</h2>
+            <form action="RegisterServlet" method="post">
+                <div class="form-group">
+                    <label for="user_id">User ID (Personnel No.):</label>
+                    <input type="text" id="user_id" name="user_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="user_name">User Name:</label>
+                    <input type="text" id="user_name" name="user_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact_no">Contact No:</label>
+                    <input type="tel" id="contact_no" name="contact_no" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="hello">Create User</button>
+            </form>
+        </section>
+    </div>
+    
+</body>
+</html>
